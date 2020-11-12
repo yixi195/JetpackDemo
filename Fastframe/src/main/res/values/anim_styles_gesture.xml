@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pop从底部弹出动画,顶部退出 -->
+    <style name="Animations_BottomIn_TopOut">
+        <item name="android:windowEnterAnimation">@anim/pw_push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/pw_push_top_out</item>
+    </style>
+</resources>

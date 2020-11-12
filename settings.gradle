@@ -1,0 +1,6 @@
+include ':app'
+/**
+ * 基础框架支撑库
+ */
+include ':Fastframe'
+rootProject.name='MainActivity'

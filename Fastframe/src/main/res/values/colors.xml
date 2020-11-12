@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 常用颜色 -->
+    <color name="white">#ffffff</color>
+    <color name="gray">#666666</color>
+    <color name="gray_translucence">#50999999</color>
+    <color name="gray_translucence_3">#30999999</color>
+    <color name="blue">#ff298ecb</color>
+    <color name="green">#057f3f</color>
+    <color name="red">#F55B5B</color>
+    <color name="yellow">#ff9f40</color>
+    <color name="transparent">#00000000</color>
+    <color name="translucence">#90000000</color>
+    <color name="translucence_white">#50FFFFFF</color>
+    <color name="temporary">#EEEEEE</color>
+
+    <color name="default_background">#f8f8f8</color>
+    <color name="default_back">#fdfdfe</color>
+    <!-- 顶部导航栏 -->
+    <color name="main_head">#FF01BCFF</color>
+    <color name="main_head_title">#ffffff</color>
+    <color name="main_bg_color">#EEEEEE</color>
+    <color name="main_line_color">#E9EAEC</color>
+    <color name="title_bar_divider_line">#EEEEEE</color>
+    <color name="simples_title_bg">#1a1e2b</color>
+    <color name="black">#000000</color>
+    <color name="list_item_line">#EEEEEE</color>
+    <color name="divider_color">#eeeeee</color>
+    <color name="cut_color">#f3f3f3</color>
+    <color name="video_navgation_cut">#323232</color>
+    <!-- 水波纹颜色 -->
+    <color name="ripple">#e6e6e6</color>
+</resources>
