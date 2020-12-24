@@ -2,7 +2,7 @@
 <resources>
     <!-- 常用颜色 -->
     <color name="white">#ffffff</color>
-    <color name="gray">#666666</color>
+    <color name="gray">#999999</color>
     <color name="gray_translucence">#50999999</color>
     <color name="gray_translucence_3">#30999999</color>
     <color name="blue">#ff298ecb</color>

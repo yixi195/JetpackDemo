@@ -1,10 +1,8 @@
 package com.ysl.project.test.activity
 
 import android.text.method.ScrollingMovementMethod
-import androidx.databinding.ObservableField
 import androidx.lifecycle.Observer
 import com.ysl.fastframe.base.activity.BaseDatabindVMActivity
-import com.ysl.fastframe.base.activity.BaseVMActivity
 import com.ysl.fastframe.network.Result
 import com.ysl.fastframe.utils.Logger
 import com.ysl.project.R
@@ -12,6 +10,8 @@ import com.ysl.project.databinding.ActivityTestBinding
 import com.ysl.project.test.viewmodel.TestViewModel
 import kotlinx.android.synthetic.main.activity_test.*
 import com.ysl.project.model.bean.ArticleList
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 
 /**
  * 测试页面
@@ -28,7 +28,7 @@ class TestVMDatabindActivity : BaseDatabindVMActivity<ActivityTestBinding, TestV
 
     override fun startObserve() {
         super.startObserve()
-        mViewModel.apply {
+        mViewModel?.apply {
             mBanners.observe(this@TestVMDatabindActivity, Observer {
                 it?.let {
                     tv_test.text = it.toString()
@@ -70,8 +70,8 @@ class TestVMDatabindActivity : BaseDatabindVMActivity<ActivityTestBinding, TestV
 
         //最新文章
         btn_last.setOnClickListener {
-            Logger.i("ysl","当前输入框内容===${mViewModel.strObser.get().toString()}")
-            for(i in 0..9){
+            Logger.i("ysl", "当前输入框内容===${mViewModel.strObser.get().toString()}")
+            for (i in 0..9) {
                 getNewList(1)
             }
 
@@ -82,12 +82,14 @@ class TestVMDatabindActivity : BaseDatabindVMActivity<ActivityTestBinding, TestV
 
     override fun initData() {
         mDataBind.testmodel = mViewModel
+
+
     }
 
     /**
      * 获取最新文章
      */
-    fun getNewList(page : Int){
+    fun getNewList(page: Int) {
         mViewModel.getArticleList(page).observe(this, Observer<Result<ArticleList>> {
             if (it is Result.Success) {
                 showToast("最新文章获取成功")

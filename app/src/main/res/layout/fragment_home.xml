@@ -2,29 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/dp_20"
+    android:paddingRight="@dimen/dp_20">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <Button
+        android:id="@+id/btn_net"
+        style="@style/NormalButton"
+        android:text="Okhttp3+LiveData网络请求示列"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/tv_livedata"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
+        android:id="@+id/btn_livedata"
+        style="@style/NormalButton"
+        android:layout_marginTop="@dimen/dp_10"
         android:text="LiveData改变数据"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
         app:layout_constraintStart_toStartOf="parent"
-        android:textSize="20sp" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_net" />
+
+    <Button
+        android:id="@+id/btn_coroutines"
+        style="@style/NormalButton"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="协程"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_livedata" />
 </androidx.constraintlayout.widget.ConstraintLayout>

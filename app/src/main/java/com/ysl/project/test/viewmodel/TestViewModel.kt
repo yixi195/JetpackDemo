@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.ysl.fastframe.base.viewmodel.BaseViewModel
 import com.ysl.fastframe.network.Result
 import com.ysl.project.model.bean.Banner
-import com.ysl.project.model.repository.HomeRepository
+import com.ysl.project.home.repository.HomeRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,7 +23,7 @@ class TestViewModel : BaseViewModel() {
     private val homeRepository by lazy { HomeRepository() }
 
     private val _uiState = MutableLiveData<TestUiModel>()
-    val uiState: LiveData<TestUiModel>
+    val uiState : LiveData<TestUiModel>
         get() = _uiState
 
     /**
@@ -31,7 +31,7 @@ class TestViewModel : BaseViewModel() {
      */
     val mBanners : LiveData<List<Banner>> = liveData {
         kotlin.runCatching {
-            val data = withContext(Dispatchers.IO) { homeRepository.getBanners() }
+            val data = homeRepository.getBanners()
 
             if (data is Result.Success) emit(data.data)
             if (data is Result.Error) data.errMsg

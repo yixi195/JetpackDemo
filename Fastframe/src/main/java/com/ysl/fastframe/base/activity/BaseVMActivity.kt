@@ -4,15 +4,17 @@ import android.os.Bundle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.lifecycleScope
 import com.ysl.fastframe.base.viewmodel.BaseViewModel
 import com.ysl.fastframe.base.viewmodel.ErrorState
 import com.ysl.fastframe.base.viewmodel.LoadState
 import com.ysl.fastframe.base.viewmodel.SuccessState
+import kotlinx.coroutines.launch
 
 /**
  * Created by YangShlai on 2019-10-23.
  */
-abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity(), LifecycleObserver {
+abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
     lateinit var mViewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +54,7 @@ abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity(), LifecycleObs
         mViewModel.let {
             lifecycle.removeObserver(it)
         }
+//        mViewModel.let(lifecycle::removeObserver)
         super.onDestroy()
     }
 }

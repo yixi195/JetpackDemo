@@ -39,8 +39,10 @@ abstract class BaseFragment : Fragment() {
         if (this.mContentView == null) {
             this.mContentView = createContentView(getContentView())
         } else {
-            val parent = this.mContentView?.getParent() as ViewGroup
-            parent?.removeView(this.mContentView)
+            val parent = this.mContentView?.getParent()
+            parent?.let {
+                (it as ViewGroup).removeView(this.mContentView)
+            }
         }
         return this.mContentView
     }

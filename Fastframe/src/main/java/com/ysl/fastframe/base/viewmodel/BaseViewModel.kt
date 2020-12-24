@@ -2,6 +2,7 @@ package com.ysl.fastframe.base.viewmodel
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.*
+import java.net.SocketException
 
 /**
  * 基本ViewModel
@@ -17,13 +18,13 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
      */
     fun launch(block: suspend CoroutineScope.() -> Unit) {
         //会在页面销毁的时候自动取消请求，不过必须要使用AndroidX,
-        viewModelScope.launch {
+        viewModelScope.launch{
             block()
         }
     }
 
     /**
-     * LiveData发送数据
+     * LiveData发射数据
      */
     fun <T> emit(block: suspend LiveDataScope<T>.() -> T): LiveData<T> = liveData {
         try {
@@ -33,13 +34,20 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
         }
     }
 
+    /**
+     * LiveData发射数据-带UI状态
+     */
     fun <T> emitOnState(block: suspend LiveDataScope<T>.() -> T): LiveData<T> = liveData {
         try {
             mStateLiveData.value = LoadState
             emit(block())
             mStateLiveData.value = SuccessState
         } catch (e: Exception) {
-            mStateLiveData.value = ErrorState(e.message)
+            var erroMsg = e.message
+            if (e is SocketException){
+                erroMsg = "网络连接失败"
+            }
+            mStateLiveData.value = ErrorState(erroMsg)
         }
     }
 

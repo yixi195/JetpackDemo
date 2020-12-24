@@ -6,7 +6,7 @@
     android:background="@drawable/bg_title_bar_black"
     android:orientation="vertical">
 
-    <com.ysl.framework.widget.MyStatusBar
+    <com.ysl.fastframe.widget.MyStatusBar
         android:id="@+id/status_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:scaleType="centerInside"
-                android:src="@mipmap/back" />
+                android:src="@drawable/back" />
 
             <TextView
                 android:id="@+id/tv_left"

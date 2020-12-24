@@ -73,16 +73,9 @@ class ScreenUtils private constructor() {
          * 获得屏幕宽度
          */
         fun getScreenWidth(context: Context): Int {
-            //        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-            //        DisplayMetrics outMetrics = new DisplayMetrics();
-            //        wm.getDefaultDisplay().getMetrics(outMetrics);
-            //        return outMetrics.widthPixels;
-
             val dm = DisplayMetrics()
             val windowMgr = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
             windowMgr.defaultDisplay.getRealMetrics(dm)
-            //        // 获取高度
-            //        int height = dm.heightPixels;
             // 获取宽度
             return dm.widthPixels
         }
@@ -91,10 +84,6 @@ class ScreenUtils private constructor() {
          * 获得屏幕高度
          */
         fun getScreenHeight(context: Context): Int {
-            //        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-            //        DisplayMetrics outMetrics = new DisplayMetrics();
-            //        wm.getDefaultDisplay().getMetrics(outMetrics);
-
             val dm = DisplayMetrics()
             val windowMgr = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
             windowMgr.defaultDisplay.getRealMetrics(dm)

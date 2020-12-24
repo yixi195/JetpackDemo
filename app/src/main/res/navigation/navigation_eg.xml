@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_eg"
+    app:startDestination="@id/stepOneFragment">
+
+    <fragment
+        android:id="@+id/stepOneFragment"
+        android:name="com.ysl.project.architecture.navigation.StepOneFragment"
+        android:label="StepOneFragment"
+        tools:layout="@layout/fragment_step_one">
+        <action
+            android:id="@+id/action_stepOneFragment_to_stepTwoFragment"
+            app:destination="@id/stepTwoFragment"
+            app:enterAnim="@anim/common_slide_in_right"
+            app:exitAnim="@anim/common_slide_out_left"
+            app:popEnterAnim="@anim/common_slide_in_left"
+            app:popExitAnim="@anim/common_slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/stepTwoFragment"
+        android:name="com.ysl.project.architecture.navigation.StepTwoFragment"
+        android:label="StepTwoFragment">
+        <action
+            android:id="@+id/action_stepTwoFragment_to_stepThreeFragment"
+            app:destination="@id/stepThreeFragment" />
+        <argument
+            android:name="EMAIL"
+            android:defaultValue="195779438@qq.com"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/stepThreeFragment"
+        android:name="com.ysl.project.architecture.navigation.StepThreeFragment"
+        android:label="StepThreeFragment">
+        <action
+            android:id="@+id/action_stepThreeFragment_to_stepOneFragment"
+            app:destination="@id/stepOneFragment" />
+    </fragment>
+</navigation>

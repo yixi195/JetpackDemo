@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dp_20"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/btn_single"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="执行单个任务"
+        style="@style/NormalButton" />
+
+    <Button
+        android:id="@+id/btn_much"
+        app:layout_constraintTop_toBottomOf="@+id/btn_single"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="执行多个任务（无序）"
+        style="@style/NormalButton" />
+
+    <Button
+        android:id="@+id/btn_much_sort"
+        app:layout_constraintTop_toBottomOf="@+id/btn_single"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="执行多个任务（有序）"
+        style="@style/NormalButton" />
+
+    <Button
+        android:id="@+id/btn_circle"
+        app:layout_constraintTop_toBottomOf="@+id/btn_much"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="执行循环任务-多次"
+        style="@style/NormalButton" />
+
+    <Button
+        android:id="@+id/btn_constraint"
+        app:layout_constraintTop_toBottomOf="@+id/btn_circle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="使用约束-延迟（或电池电量、充电、网络条件、存储）"
+        style="@style/NormalButton" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/btn_constraint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="取消任务"
+        style="@style/NormalButton" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cancel"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

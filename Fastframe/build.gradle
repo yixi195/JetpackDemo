@@ -15,6 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -35,18 +36,25 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
+
 }
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
+    //最大方法数
+    api "androidx.multidex:multidex:2.0.0"
     //kotlin
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     //kotlin协程
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
+//    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.kotlinCoroutinesCore"
+//    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.kotlinCoroutinesAndrid"
     //appcompat
     api "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
-    api "androidx.core:core-ktx:$rootProject.ktxVersion"
+    api "androidx.core:core-ktx:$rootProject.coreKtx"
     api "com.google.android.material:material:$rootProject.materialVersion"
     api "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
     api "androidx.vectordrawable:vectordrawable:$rootProject.vectordrawable"
@@ -59,6 +67,15 @@ dependencies {
     api "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
     // liveData
     api "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
+    // Lifecycles only (without ViewModel or LiveData)
+    api "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.lifecycleVersion"
+    //paging3
+    implementation "androidx.paging:paging-runtime:$rootProject.paging_version"
+    // 用于测试
+    testImplementation "androidx.paging:paging-common:$rootProject.paging_version"
+    // [paging3 可选] RxJava 支持
+    implementation "androidx.paging:paging-rxjava2:$rootProject.paging_version"
+
 
     //recyclerview
     api "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
@@ -85,7 +102,7 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
     api "com.github.bumptech.glide:okhttp3-integration:$rootProject.glidOkhttp"
     //rxjava 生命周期
-    api "com.trello.rxlifecycle3:rxlifecycle-kotlin:$rootProject.rxlifecycle"
+//    api "com.trello.rxlifecycle3:rxlifecycle-kotlin:$rootProject.rxlifecycle"
 
 
     // Testing dependencies

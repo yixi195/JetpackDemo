@@ -5,8 +5,6 @@ import com.ysl.fastframe.network.Result
 import com.ysl.fastframe.utils.Logger
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
-import java.io.IOException
-import java.lang.Exception
 
 /**
  * 基础Repository
@@ -46,7 +44,7 @@ open class BaseRepository {
                 successBlock?.let { it() }
                 Result.Success(response.data)
             }else{
-                Logger.i(TAG,"Result.Error()")
+                Logger.i(TAG,"Result.Error()---")
                 erroBlock?.let { it() }
                 Result.Error(response.code,response.msg)
             }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/transparent"
     android:orientation="vertical">
 
@@ -13,7 +13,7 @@
         android:background="@drawable/bg_title_bar_white"
         android:orientation="vertical">
 
-        <com.ysl.framework.widget.MyStatusBar
+        <com.ysl.fastframe.widget.MyStatusBar
             android:id="@+id/status_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,35 +28,35 @@
                 android:id="@+id/rl_back_layer"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:layout_centerVertical="true"
-                android:paddingLeft="16dp"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp">
 
                 <ImageView
                     android:id="@+id/iv_left_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/back_black" />
+                    android:src="@drawable/back_black" />
 
                 <TextView
-                    android:id="@+id/tv_middle"
+                    android:id="@+id/tv_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_marginRight="80dp"
                     android:ellipsize="end"
-                    tools:text="测试"
-                    android:includeFontPadding="false"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:maxLines="1"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_16" />
+                    android:textSize="@dimen/text_size_16"
+                    tools:text="测试" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_left"
+                android:id="@+id/tv_middle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -65,7 +65,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_size_16" />
 
             <LinearLayout
                 android:id="@+id/right_layer"
@@ -94,15 +94,8 @@
 
             </LinearLayout>
 
-            <!--#33aaa9a9-->
 
         </RelativeLayout>
-
-        <!--<View-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_below="@+id/toolbar"-->
-            <!--android:background="@drawable/appbar_elevation"></View>-->
 
 
     </LinearLayout>
@@ -111,6 +104,5 @@
         android:id="@+id/divider_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:src="@mipmap/ic_titlebar_eleva" />
+        android:visibility="gone" />
 </LinearLayout>

@@ -24,6 +24,7 @@ abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
     private fun initVM() {
         providerVMClass()?.let {
             mViewModel = ViewModelProviders.of(this).get(it)
+            //生命周期添加监听
             lifecycle.addObserver(mViewModel)
         }
     }
@@ -31,6 +32,7 @@ abstract class BaseVMFragment<VM : BaseViewModel> : BaseFragment() {
     open fun providerVMClass(): Class<VM>? = null
 
     override fun onDestroy() {
+        //生命周期移除监听
         lifecycle.removeObserver(mViewModel)
         super.onDestroy()
     }

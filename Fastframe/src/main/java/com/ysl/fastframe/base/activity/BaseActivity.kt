@@ -8,13 +8,14 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleObserver
 import com.ysl.fastframe.utils.*
 
 
 /**
  * Created by YangShlai on 2019-09-19.
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(),LifecycleObserver {
     protected var TAG = ""
     protected var dialogUtils: LoadingUtils? = null
 
@@ -30,14 +31,14 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         TAG = javaClass.simpleName
-        Logger.i("BaseActivity", "onCreate开始时间===" + TimeUtils.getNowString())
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.O && isTranslucentOrFloating()) {
-            val result = fixOrientation()
-            Logger.i("BaseActivity", "onCreate fixOrientation when Oreo, result = $result")
-        } else {
-            //强制竖屏
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        }
+        Logger.i("BaseActivity", "onCreate开始时间===" + TimeUtils.nowMills)
+//        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.O && isTranslucentOrFloating()) {
+//            val result = fixOrientation()
+//            Logger.i("BaseActivity", "onCreate fixOrientation when Oreo, result = $result")
+//        } else {
+//            //强制竖屏
+//            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+//        }
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         TAG = javaClass.simpleName
@@ -46,7 +47,7 @@ abstract class BaseActivity : AppCompatActivity() {
         ActivityManager.addActivity(this,TAG)
         AutoHideKeyboard.init(this)
 
-        Logger.i("BaseActivity", "onCreate结束时间===" + TimeUtils.getNowString())
+        Logger.i("BaseActivity", "onCreate结束时间===" + TimeUtils.nowMills)
     }
 
     open fun setContentLayout(){
