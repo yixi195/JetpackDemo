@@ -3,6 +3,8 @@ package com.ysl.project.model.api
 import com.ysl.fastframe.network.NetResponse
 import com.ysl.project.model.bean.Banner
 import com.ysl.project.model.bean.ArticleList
+import com.ysl.project.model.bean.PageList
+import com.ysl.project.model.bean.WenDa
 import retrofit2.http.*
 
 /**
@@ -33,4 +35,10 @@ interface TestApi {
      */
     @GET("article/listproject/{page}/json")
     suspend fun getLastedProject(@Path("page") page: Int): NetResponse<ArticleList>
+
+    /**
+     * 获取每日问答列表
+     */
+    @GET("wenda/list/{page}/json")
+    suspend fun getWenDaList(@Path("page") page : Int) : NetResponse<PageList<WenDa>>
 }

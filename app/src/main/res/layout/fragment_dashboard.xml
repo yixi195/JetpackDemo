@@ -21,6 +21,22 @@
         app:layout_constraintLeft_toLeftOf="parent"
         style="@style/NormalButton"/>
 
+    <Button
+        android:id="@+id/btn_paging"
+        android:text="Paging3"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/btn_workermanager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/NormalButton"/>
+
+    <Button
+        android:id="@+id/btn_compose"
+        android:text="Jetpack Compose"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/btn_paging"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/NormalButton"/>
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"

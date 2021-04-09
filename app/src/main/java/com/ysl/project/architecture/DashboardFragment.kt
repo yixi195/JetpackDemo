@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import com.ysl.fastframe.base.fragment.BaseVMFragment
 import com.ysl.project.R
 import com.ysl.project.architecture.navigation.NavigationEgActivity
+import com.ysl.project.architecture.paging.activity.PagingActivity
 import com.ysl.project.architecture.workmanager.WorkerManagerActivity
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
@@ -25,6 +26,10 @@ class DashboardFragment : BaseVMFragment<DashboardViewModel>() {
 
         btn_workermanager.setOnClickListener {
             startActivity(Intent(activity,WorkerManagerActivity::class.java))
+        }
+
+        btn_paging.setOnClickListener {
+            startActivity(Intent(activity,PagingActivity::class.java))
         }
     }
 

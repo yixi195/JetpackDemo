@@ -70,11 +70,11 @@ dependencies {
     // Lifecycles only (without ViewModel or LiveData)
     api "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.lifecycleVersion"
     //paging3
-    implementation "androidx.paging:paging-runtime:$rootProject.paging_version"
+    api "androidx.paging:paging-runtime:$rootProject.paging_version"
     // 用于测试
     testImplementation "androidx.paging:paging-common:$rootProject.paging_version"
     // [paging3 可选] RxJava 支持
-    implementation "androidx.paging:paging-rxjava2:$rootProject.paging_version"
+    api "androidx.paging:paging-rxjava2:$rootProject.paging_version"
 
 
     //recyclerview

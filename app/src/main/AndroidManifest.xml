@@ -30,6 +30,8 @@
         <activity android:name=".architecture.navigation.NavigationEgActivity" />
         <activity android:name=".architecture.workmanager.WorkerManagerActivity" />
         <activity android:name=".coroutines.CoroutinesTestAcativity" />
+        <activity android:name=".architecture.compose.ComposeActivity" />
+        <activity android:name=".architecture.paging.activity.PagingActivity" />
 
 
         <!-- Andorid7.0 -->
