@@ -11,13 +11,21 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:middleText="ViewPager2+TabLayout" />
+    <Button
+        android:id="@+id/btn_diff"
+        style="@style/NormalButton"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/my_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Diff更新" />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_title"
+        app:layout_constraintTop_toBottomOf="@+id/btn_diff"
         android:background="@color/colorPrimary"
         app:tabMode="scrollable"
         app:tabTextColor="@color/white" />

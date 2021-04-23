@@ -15,7 +15,7 @@ class ViewPager2ExampleActivity : BaseActivity(){
     override fun getContentView(): Int = R.layout.activity_viewpager2_example
 
     override fun initView() {
-        var list = mutableListOf<ChildData>()
+        var list = arrayListOf<ChildData>()
         list.add(ChildData(1,"first"))
         list.add(ChildData(2,"sencond"))
         list.add(ChildData(3,"three"))
@@ -49,6 +49,17 @@ class ViewPager2ExampleActivity : BaseActivity(){
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels)
             }
         })
+
+        btn_diff.setOnClickListener {
+            var list2 = arrayListOf<ChildData>()
+            list2.add(ChildData(1,"first"))
+            list2.add(ChildData(23,"sencond"))
+            list2.add(ChildData(33,"three"))
+            list2.add(ChildData(3,"four"))
+            list2.add(ChildData(5,"five"))
+            list2.add(ChildData(6,"six"))
+            adapter.setData(list2)
+        }
     }
 
     override fun initData() {

@@ -5,6 +5,7 @@ import android.view.View
 import com.ysl.fastframe.base.fragment.BaseFragment
 import com.ysl.project.R
 import kotlinx.android.synthetic.main.fragment_child.*
+import java.util.logging.Logger
 
 /**
  *  Craete by YangShlai on 2021/4/23
@@ -27,6 +28,6 @@ class ChildFragment : BaseFragment() {
 
     override fun initData() {
         var data = arguments?.getSerializable("data") as ChildData
-        tv_content.text = data.content
+        tv_content.text = data.id.toString() + "|" + data.content
     }
 }
