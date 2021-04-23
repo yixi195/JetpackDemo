@@ -1,23 +1,23 @@
 package com.ysl.project.test.viewmodel
 
 import androidx.databinding.ObservableField
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.ysl.fastframe.base.viewmodel.BaseViewModel
 import com.ysl.fastframe.network.Result
-import com.ysl.project.model.bean.Banner
+import com.ysl.fastframe.utils.Logger
 import com.ysl.project.home.repository.HomeRepository
+import com.ysl.project.model.bean.ArticleList
+import com.ysl.project.model.bean.Banner
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.ysl.project.model.bean.ArticleList
+
 
 /**
  * Created by YangShlai on 2019-11-12.
  */
 class TestViewModel : BaseViewModel() {
+    private val TAG = "TestViewModel"
 
     val strObser = ObservableField("123")
     private val homeRepository by lazy { HomeRepository() }
@@ -25,6 +25,24 @@ class TestViewModel : BaseViewModel() {
     private val _uiState = MutableLiveData<TestUiModel>()
     val uiState : LiveData<TestUiModel>
         get() = _uiState
+
+
+    /**
+     * onResum 生命周期 二选一
+     * 1.不带LifecycleOwner参数
+     */
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun onResume() {
+        //todo
+        Logger.i(TAG,"onResume()----")
+    }
+
+    //2.带LifecycleOwner参数
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun onResume(lifecycleOwner: LifecycleOwner) {
+        //todo
+        Logger.i(TAG,"onResume()----" + lifecycleOwner.lifecycle.currentState)
+    }
 
     /**
      * banner

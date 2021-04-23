@@ -37,6 +37,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         style="@style/NormalButton"/>
 
+    <Button
+        android:id="@+id/btn_viewpager2"
+        android:text="ViewPager2"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/btn_compose"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/NormalButton"/>
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"

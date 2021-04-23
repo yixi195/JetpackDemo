@@ -8,6 +8,7 @@ import com.ysl.project.R
 import com.ysl.project.architecture.navigation.NavigationEgActivity
 import com.ysl.project.architecture.paging.activity.PagingActivity
 import com.ysl.project.architecture.workmanager.WorkerManagerActivity
+import com.ysl.project.module.viewpager.ViewPager2ExampleActivity
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 
@@ -31,6 +32,9 @@ class DashboardFragment : BaseVMFragment<DashboardViewModel>() {
         btn_paging.setOnClickListener {
             startActivity(Intent(activity,PagingActivity::class.java))
         }
+
+        //viewpager2
+        btn_viewpager2.setOnClickListener { startActivity(Intent(activity,ViewPager2ExampleActivity::class.java)) }
     }
 
     override fun providerVMClass() = DashboardViewModel::class.java

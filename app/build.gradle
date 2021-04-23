@@ -44,7 +44,8 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(':Fastframe')
-
+    //viewpager2
+    implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
 
 
 

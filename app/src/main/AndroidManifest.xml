@@ -32,6 +32,7 @@
         <activity android:name=".coroutines.CoroutinesTestAcativity" />
         <activity android:name=".architecture.compose.ComposeActivity" />
         <activity android:name=".architecture.paging.activity.PagingActivity" />
+        <activity android:name=".module.viewpager.ViewPager2ExampleActivity" />
 
 
         <!-- Andorid7.0 -->
