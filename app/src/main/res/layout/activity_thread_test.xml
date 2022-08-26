@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.ysl.fastframe.widget.MyTitleBar
+        android:id="@+id/my_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/my_title"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_join"
+            android:text="Thread.join" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_synchrnoized"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="Synchronized" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_ReentrantLock"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="ReentrantLock" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_blockingQueue"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="BlockingQueue" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_countdownlatch"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="CountDownLatch" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_CyclicBarrier"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="CyclicBarrier" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_cas"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="CAS" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_future"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="Future" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_CompletableFuture"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="CompletableFuture" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_Rxjava"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="Rxjava" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_coroutine"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="Coroutine" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="test_flow"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="Flow" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

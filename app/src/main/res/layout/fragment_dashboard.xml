@@ -45,6 +45,30 @@
         app:layout_constraintLeft_toLeftOf="parent"
         style="@style/NormalButton"/>
 
+    <Button
+        android:id="@+id/btn_hint"
+        android:text="Hint-依赖注入"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/btn_viewpager2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/NormalButton"/>
+
+    <Button
+        android:id="@+id/btn_koin"
+        android:text="Koin-依赖注入"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/btn_hint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/NormalButton"/>
+
+    <Button
+        android:id="@+id/btn_room"
+        android:text="Room"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/btn_koin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/NormalButton"/>
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"

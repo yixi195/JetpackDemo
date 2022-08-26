@@ -33,6 +33,12 @@
         <activity android:name=".architecture.compose.ComposeActivity" />
         <activity android:name=".architecture.paging.activity.PagingActivity" />
         <activity android:name=".module.viewpager.ViewPager2ExampleActivity" />
+        <activity android:name=".home.activity.HiLogActivity" />
+        <activity android:name=".architecture.hint.HiltSamActivity" />
+        <activity android:name=".architecture.room.RoomActivity" />
+        <activity android:name=".home.activity.ThreadTestActivity" />
+        <activity android:name=".home.activity.AnimationActivity" />
+        <activity android:name=".architecture.koin.KoinSamActivity" />
 
 
         <!-- Andorid7.0 -->

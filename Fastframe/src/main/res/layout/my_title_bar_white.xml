@@ -52,7 +52,7 @@
                     android:maxLines="1"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_16"
-                    tools:text="测试" />
+                    tools:text="" />
             </LinearLayout>
 
             <TextView

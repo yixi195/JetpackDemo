@@ -1,5 +1,6 @@
 package com.ysl.fastframe.base.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.*
 import java.net.SocketException
@@ -11,14 +12,21 @@ import java.net.SocketException
 open class BaseViewModel : ViewModel(), LifecycleObserver {
     //通用事件模型驱动(如：显示对话框、取消对话框、错误提示)
     val mStateLiveData = MutableLiveData<StateActionEvent>()
-
-
     /**
      * 通用使用协程封装统一的请求处理
      */
     fun launch(block: suspend CoroutineScope.() -> Unit) {
         //会在页面销毁的时候自动取消请求，不过必须要使用AndroidX,
         viewModelScope.launch{
+            block()
+        }
+    }
+
+    /**
+     * 在子线程运行
+     */
+    fun launchIO(block: suspend CoroutineScope.() -> Unit) {
+        viewModelScope.launch(Dispatchers.IO){
             block()
         }
     }

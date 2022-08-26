@@ -10,14 +10,18 @@ import com.ysl.project.databinding.ActivityTestBinding
 import com.ysl.project.test.viewmodel.TestViewModel
 import kotlinx.android.synthetic.main.activity_test.*
 import com.ysl.project.model.bean.ArticleList
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
 /**
  * 测试页面
  * Created by YangShlai on 2019-11-12.
  */
+@AndroidEntryPoint
 class TestVMDatabindActivity : BaseDatabindVMActivity<ActivityTestBinding, TestViewModel>() {
+
     override fun providerVMClass() = TestViewModel::class.java
 
 

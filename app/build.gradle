@@ -3,10 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
+//    buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
         applicationId "com.ysl.project"
         minSdkVersion rootProject.minSdkVersion
@@ -46,8 +47,20 @@ dependencies {
     api project(':Fastframe')
     //viewpager2
     implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+    //hilt
+    implementation "com.google.dagger:hilt-android:2.28-alpha"
+    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    //room
+    implementation "androidx.room:room-runtime:$rootProject.room_version"
+    kapt "androidx.room:room-compiler:$rootProject.room_version"
 
+    //koin
+    implementation "io.insert-koin:koin-android:$rootProject.koin_version"
 
+    implementation "androidx.room:room-runtime:$rootProject.room_version"
+//    implementation "androidx.room:room-common:$rootProject.room_version"
+//    implementation "androidx.room:room-ktx:$rootProject.room_version"
+//    kapt "androidx.room:room-compiler:$rootProject.room_version"
 
     // Testing dependencies
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"

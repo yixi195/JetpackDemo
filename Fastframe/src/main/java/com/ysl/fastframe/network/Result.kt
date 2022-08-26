@@ -1,7 +1,5 @@
 package com.ysl.fastframe.network
 
-import java.lang.Exception
-
 /**
  * 密封 result
  * Created by YangShlai on 2019-11-12.

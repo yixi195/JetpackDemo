@@ -36,6 +36,7 @@ abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
      * 开始监听
      */
     open fun startObserve() {
+        //状态过程
         mViewModel?.mStateLiveData.observe(this, Observer {
             when(it){
                 LoadState -> showLoading("")

@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.text.TextUtils
 import com.ysl.fastframe.view.CenterLoadingView
-
-
 /**
  * 等待提示框
  * Created by huang on 2017/5/23.

@@ -6,7 +6,7 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
+//    buildToolsVersion rootProject.buildToolsVersion
 
 
     defaultConfig {
@@ -50,8 +50,8 @@ dependencies {
     //kotlin
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     //kotlin协程
-//    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.kotlinCoroutinesCore"
-//    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.kotlinCoroutinesAndrid"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.kotlinCoroutinesCore"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.kotlinCoroutinesAndrid"
     //appcompat
     api "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     api "androidx.core:core-ktx:$rootProject.coreKtx"
@@ -68,14 +68,13 @@ dependencies {
     // liveData
     api "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
     // Lifecycles only (without ViewModel or LiveData)
-    api "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.lifecycleVersion"
+//    api "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.lifecycleVersion"
     //paging3
     api "androidx.paging:paging-runtime:$rootProject.paging_version"
     // 用于测试
     testImplementation "androidx.paging:paging-common:$rootProject.paging_version"
     // [paging3 可选] RxJava 支持
     api "androidx.paging:paging-rxjava2:$rootProject.paging_version"
-
 
     //recyclerview
     api "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"

@@ -9,14 +9,16 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url "http://maven.aliyun.com/nexus/content/repositories/releases" }
-        maven { url 'https://dl.bintray.com/umsdk/release' }
-        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+//        maven { url 'https://dl.bintray.com/umsdk/release' }
+//        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
 
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+        //hint
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
 
@@ -27,16 +29,16 @@ allprojects {
     repositories {
         maven{ url = "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "https://jitpack.io" }
-        maven {
-            url 'https://dl.bintray.com/crab/baidu'
-        }
+//        maven {
+//            url 'https://dl.bintray.com/crab/baidu'
+//        }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url "http://maven.aliyun.com/nexus/content/repositories/releases" }
-        maven { url 'https://dl.bintray.com/umsdk/release' }
+//        maven { url 'https://dl.bintray.com/umsdk/release' }
         maven { url 'http://developer.huawei.com/repo/'}
-        maven {url  "https://dl.bintray.com/rongcloud/maven"}
-        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+//        maven {url  "https://dl.bintray.com/rongcloud/maven"}
+//        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
 

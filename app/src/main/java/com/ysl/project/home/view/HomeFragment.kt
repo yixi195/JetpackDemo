@@ -4,8 +4,11 @@ import android.content.Intent
 import android.view.View
 import androidx.lifecycle.Observer
 import com.ysl.fastframe.base.fragment.BaseVMFragment
+import com.ysl.fastframe.utils.hilog.HiLog
 import com.ysl.project.R
 import com.ysl.project.coroutines.CoroutinesTestAcativity
+import com.ysl.project.home.activity.HiLogActivity
+import com.ysl.project.home.activity.ThreadTestActivity
 import com.ysl.project.home.viewmodel.HomeViewModel
 import com.ysl.project.test.activity.TestVMDatabindActivity
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -27,6 +30,14 @@ class HomeFragment : BaseVMFragment<HomeViewModel>() {
         }
         btn_coroutines.setOnClickListener {
             startActivity(Intent(activity,CoroutinesTestAcativity::class.java))
+        }
+        //hilog
+        btn_hilog.setOnClickListener {
+            startActivity(Intent(activity,HiLogActivity::class.java))
+        }
+        //thread
+        btn_thread.setOnClickListener {
+            startActivity(Intent(activity,ThreadTestActivity::class.java))
         }
     }
 
