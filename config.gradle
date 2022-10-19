@@ -37,7 +37,7 @@ ext {
     truthVersion = '0.42'
     testExtJunit = '1.1.0'
     uiAutomatorVersion = '2.2.0'
-    workVersion = '2.1.0'
+    workVersion = '2.7.1'
     vectordrawable = '1.0.1'
     retrofit = '2.6.1'
     rxandroid = '2.1.1'

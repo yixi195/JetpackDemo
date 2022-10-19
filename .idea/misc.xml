@@ -3,11 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_send.xml" value="0.134" />
+        <entry key="app/src/main/res/layout/activity_coroutines_test.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/activity_hilog.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/activity_hilt_sam.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/activity_koin_sam.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12952898550724637" />
+        <entry key="app/src/main/res/layout/activity_navigation_eg.xml" value="0.12031408308004053" />
+        <entry key="app/src/main/res/layout/activity_room.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/activity_soft_keyboard.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_test.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/activity_thread_test.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/fragment_step_one.xml" value="0.24739583333333334" />
       </map>
     </option>
   </component>

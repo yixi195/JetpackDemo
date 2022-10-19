@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +40,8 @@
         <activity android:name=".home.activity.ThreadTestActivity" />
         <activity android:name=".home.activity.AnimationActivity" />
         <activity android:name=".architecture.koin.KoinSamActivity" />
+        <activity android:name=".other.keyboard.SoftKeyboardAnimActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
 
 
         <!-- Andorid7.0 -->

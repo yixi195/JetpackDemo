@@ -228,7 +228,7 @@ class ThreadTestActivity : BaseActivity() {
             .awaitTerminalEvent() //等待直到接收到任何终端事件
     }
 
-    //Coroutine
+    //Coroutine协程
     fun test_coroutine(view : View) {
         runBlocking {
             val c1 = async(Dispatchers.IO) {

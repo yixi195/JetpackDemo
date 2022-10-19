@@ -9,6 +9,7 @@ import com.ysl.fastframe.utils.hilog.HiLogManager
 import com.ysl.project.architecture.hint.HiltTest
 import com.ysl.project.architecture.koin.di.netWorkModule
 import com.ysl.project.architecture.koin.di.testModule
+import com.ysl.project.module.keyboard.SystemUiControll
 import dagger.hilt.android.HiltAndroidApp
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
@@ -58,5 +59,8 @@ class App : BaseApplication() {
             androidFileProperties() //允许读取 默认名字为koin.properties,你也可以直接重新设置名称
             modules(netWorkModule,testModule) //加载注入的module
         }
+
+        //keyboard
+        SystemUiControll.getInstence().register(this@App)
     }
 }

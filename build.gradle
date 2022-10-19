@@ -5,6 +5,7 @@ buildscript {
     apply from: 'config.gradle'
 
     repositories {
+        maven { url "https://jitpack.io" }
         maven{ url = "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
@@ -21,14 +22,15 @@ buildscript {
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-
+        //隐私合规插件依赖
+//        classpath 'com.github.allenymt.PrivacySentry:plugin-sentry:1.1.0'
     }
 }
 
 allprojects {
     repositories {
-        maven{ url = "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "https://jitpack.io" }
+        maven{ url = "http://maven.aliyun.com/nexus/content/groups/public/" }
 //        maven {
 //            url 'https://dl.bintray.com/crab/baidu'
 //        }

@@ -4,6 +4,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'dagger.hilt.android.plugin'
+//apply plugin: 'privacy-sentry-plugin' //隐私合规
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -44,6 +45,13 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
+    // aar依赖
+//    def privacyVersion = "1.1.0"
+//    implementation "com.github.allenymt.PrivacySentry:hook-sentry:$privacyVersion"
+//    implementation "com.github.allenymt.PrivacySentry:privacy-annotation:$privacyVersion"
+//    //如果不想使用库中本身的代理方法，可以不引入这个aar，自己实现
+//    implementation "com.github.allenymt.PrivacySentry:privacy-proxy:$privacyVersion"
+
     api project(':Fastframe')
     //viewpager2
     implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
@@ -72,5 +80,9 @@ dependencies {
     androidTestImplementation "androidx.work:work-testing:$rootProject.workVersion"
     androidTestImplementation "com.google.truth:truth:$rootProject.truthVersion"
     testImplementation "junit:junit:$rootProject.junitVersion"
-
 }
+
+//privacy {
+//    blackList = []
+//    replaceFileName = "replace.json"
+//}

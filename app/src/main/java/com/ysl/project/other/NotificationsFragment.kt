@@ -1,36 +1,20 @@
 package com.ysl.project.other
 
-import android.os.Bundle
-import android.view.LayoutInflater
+import android.content.Intent
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import com.ysl.fastframe.base.fragment.BaseVMFragment
 import com.ysl.project.R
+import com.ysl.project.other.keyboard.SoftKeyboardAnimActivity
+import kotlinx.android.synthetic.main.fragment_notifications.*
 
-class NotificationsFragment : Fragment() {
+class NotificationsFragment : BaseVMFragment<NotificationsViewModel>() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    override fun getContentView(): Int = R.layout.fragment_notifications
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        notificationsViewModel =
-            ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+    override fun initView(view: View) {
+        btn_keyboard.setOnClickListener {
+            startActivity(Intent(requireActivity(),SoftKeyboardAnimActivity::class.java))
+        }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 }
