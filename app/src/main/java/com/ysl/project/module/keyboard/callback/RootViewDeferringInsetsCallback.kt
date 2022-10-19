@@ -1,83 +1,63 @@
-package com.ysl.project.module.keyboard.callback;
+package com.ysl.project.module.keyboard.callback
 
-import android.view.View;
+import android.view.View
+import androidx.core.graphics.Insets
+import androidx.core.view.OnApplyWindowInsetsListener
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsAnimationCompat
+import androidx.core.view.WindowInsetsCompat
+import com.ysl.project.module.keyboard.listener.KeyboardListener
+import com.ysl.project.module.keyboard.UiType
 
-import androidx.annotation.NonNull;
-import androidx.core.graphics.Insets;
-import androidx.core.view.OnApplyWindowInsetsListener;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsAnimationCompat;
-import androidx.core.view.WindowInsetsCompat;
-import com.ysl.project.module.keyboard.UiType;
-import com.ysl.project.module.keyboard.listener.KeyboardListener;
-import java.util.List;
-
+class RootViewDeferringInsetsCallback
 /**
- * Created by timeDoMain.
- * User: scy
- * Date: 3/1/21  11:39 AM
- */
-public class RootViewDeferringInsetsCallback extends WindowInsetsAnimationCompat.Callback implements OnApplyWindowInsetsListener {
-    private final KeyboardListener keyboardListener;
-
-    /**
-     * Creates a new {@link WindowInsetsAnimationCompat} callback with the given
-     * {@link #getDispatchMode() dispatch mode}.
-     *
-     * @param dispatchMode The dispatch mode for this callback. See {@link #getDispatchMode()}.
-     */
-    public RootViewDeferringInsetsCallback(int dispatchMode, KeyboardListener keyboardListener) {
-        super(dispatchMode);
-        this.keyboardListener = keyboardListener;
+ * Creates a new [WindowInsetsAnimationCompat] callback with the given
+ * [dispatch mode][.getDispatchMode].
+ *
+ * @param dispatchMode The dispatch mode for this callback. See [.getDispatchMode].
+ */(dispatchMode: Int, private val keyboardListener: KeyboardListener) :
+    WindowInsetsAnimationCompat.Callback(dispatchMode), OnApplyWindowInsetsListener {
+    private var view: View? = null
+    private var lastWindowInsets: WindowInsetsCompat? = null
+    private var deferredInsets = false
+    override fun onApplyWindowInsets(v: View, insets: WindowInsetsCompat): WindowInsetsCompat {
+        view = v
+        lastWindowInsets = insets
+        return WindowInsetsCompat.CONSUMED
     }
 
-    private View view;
-    private WindowInsetsCompat lastWindowInsets;
-
-    private boolean deferredInsets = false;
-
-
-    @Override
-    public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
-        view = v;
-        lastWindowInsets = insets;
-        return WindowInsetsCompat.CONSUMED;
-    }
-
-    @Override
-    public void onPrepare(@NonNull WindowInsetsAnimationCompat animation) {
-        if ((animation.getTypeMask() & UiType.KEYBOARY) != 0) {
-            deferredInsets = true;
-            keyboardListener.onKeyBoardAnimStart();
+    override fun onPrepare(animation: WindowInsetsAnimationCompat) {
+        if (animation.typeMask and UiType.KEYBOARY != 0) {
+            deferredInsets = true
+            keyboardListener.onKeyBoardAnimStart()
         }
     }
 
-    @NonNull
-    @Override
-    public WindowInsetsCompat onProgress(@NonNull WindowInsetsCompat insets, @NonNull List<WindowInsetsAnimationCompat> runningAnimations) {
+    override fun onProgress(
+        insets: WindowInsetsCompat,
+        runningAnimations: List<WindowInsetsAnimationCompat>
+    ): WindowInsetsCompat {
         if (deferredInsets) {
             // First we get the insets which are potentially deferred
-            Insets typesInset = insets.getInsets(UiType.KEYBOARY);
+            val typesInset = insets.getInsets(UiType.KEYBOARY)
             // Then we get the persistent inset types which are applied as padding during layout
-            Insets otherInset = insets.getInsets(UiType.ALL_BARS);
+            val otherInset = insets.getInsets(UiType.ALL_BARS)
 
             // Now that we subtract the two insets, to calculate the difference. We also coerce
             // the insets to be >= 0, to make sure we don't use negative insets.
-            Insets subtract = Insets.subtract(typesInset, otherInset);
-            Insets diff = Insets.max(subtract, Insets.NONE);
-
-            keyboardListener.onKeyBoardHeightChange(diff.bottom);
+            val subtract = Insets.subtract(typesInset, otherInset)
+            val diff = Insets.max(subtract, Insets.NONE)
+            keyboardListener.onKeyBoardHeightChange(diff.bottom)
         }
-        return insets;
+        return insets
     }
 
-    @Override
-    public void onEnd(@NonNull WindowInsetsAnimationCompat animation) {
-        if (deferredInsets && (animation.getTypeMask() & UiType.KEYBOARY) != 0) {
-            deferredInsets = false;
-            keyboardListener.onKeyBoardAnimEnd();
+    override fun onEnd(animation: WindowInsetsAnimationCompat) {
+        if (deferredInsets && animation.typeMask and UiType.KEYBOARY != 0) {
+            deferredInsets = false
+            keyboardListener.onKeyBoardAnimEnd()
             if (lastWindowInsets != null) {
-                ViewCompat.dispatchApplyWindowInsets(view, lastWindowInsets);
+                ViewCompat.dispatchApplyWindowInsets(view!!, lastWindowInsets!!)
             }
         }
     }

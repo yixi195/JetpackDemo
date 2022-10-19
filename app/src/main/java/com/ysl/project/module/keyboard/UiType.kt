@@ -1,12 +1,12 @@
-package com.ysl.project.module.keyboard;
+package com.ysl.project.module.keyboard
 
-import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsCompat
 
-public class UiType {
-    public static final int KEYBOARY = WindowInsetsCompat.Type.ime();
-    public static final int ALL_BARS = WindowInsetsCompat.Type.systemBars();
-    public static final int STATUS_BAR = WindowInsetsCompat.Type.statusBars();
-    public static final int NAVIGATION_BAR = WindowInsetsCompat.Type.navigationBars();
-
-
+object UiType {
+    @JvmField
+    val KEYBOARY = WindowInsetsCompat.Type.ime()
+    @JvmField
+    val ALL_BARS = WindowInsetsCompat.Type.systemBars()
+    val STATUS_BAR = WindowInsetsCompat.Type.statusBars()
+    val NAVIGATION_BAR = WindowInsetsCompat.Type.navigationBars()
 }

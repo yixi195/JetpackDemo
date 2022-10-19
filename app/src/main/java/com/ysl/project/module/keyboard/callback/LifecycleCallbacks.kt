@@ -1,79 +1,40 @@
-package com.ysl.project.module.keyboard.callback;
+package com.ysl.project.module.keyboard.callback
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+import android.app.Application.ActivityLifecycleCallbacks
+import android.app.Activity
+import android.os.Bundle
+import android.view.View
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import java.util.ArrayList
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class LifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
-
-
-    private View decorView;
-    private WindowInsetsControllerCompat controller;
-
-    public View getDecorView() {
-        return decorView;
+class LifecycleCallbacks : ActivityLifecycleCallbacks {
+    var decorView: View? = null
+        private set
+    var controller: WindowInsetsControllerCompat? = null
+        private set
+    private val activities: MutableList<Activity> = ArrayList()
+    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+        activities.add(activity)
+        decorView = activity.window.decorView
+        controller = WindowCompat.getInsetsController(activity.window, decorView!!)
     }
 
-    public WindowInsetsControllerCompat getController() {
-        return controller;
+    override fun onActivityStarted(activity: Activity) {}
+    override fun onActivityResumed(activity: Activity) {}
+    override fun onActivityPaused(activity: Activity) {}
+    override fun onActivityStopped(activity: Activity) {}
+    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
+    fun isVisible(type: Int): Boolean {
+        return ViewCompat.getRootWindowInsets(decorView!!)!!.isVisible(type)
     }
 
-    private final List<Activity> activities = new ArrayList<>();
-
-    @Override
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-        activities.add(activity);
-        decorView = activity.getWindow().getDecorView();
-        controller = WindowCompat.getInsetsController(activity.getWindow(), decorView);
-
-    }
-
-    @Override
-    public void onActivityStarted(@NonNull Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityResumed(@NonNull Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityPaused(@NonNull Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityStopped(@NonNull Activity activity) {
-
-    }
-
-    @Override
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
-
-    }
-
-    public boolean isVisible(int type){
-       return  ViewCompat.getRootWindowInsets(decorView).isVisible(type);
-    }
-
-    @Override
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        activities.remove(activity);
-        if (activities.size() == 0) {
-            decorView = null;
-            controller = null;
+    override fun onActivityDestroyed(activity: Activity) {
+        activities.remove(activity)
+        if (activities.size == 0) {
+            decorView = null
+            controller = null
         }
     }
 }

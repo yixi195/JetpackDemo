@@ -14,7 +14,7 @@ class SoftKeyboardAnimActivity : BaseActivity() {
 
     override fun initView() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        SystemUiControll.getInstence().setAutoMoveView(ll_et)
+        SystemUiControll.instence.setAutoMoveView(ll_et)
     }
 
     override fun initData() {

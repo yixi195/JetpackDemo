@@ -61,6 +61,6 @@ class App : BaseApplication() {
         }
 
         //keyboard
-        SystemUiControll.getInstence().register(this@App)
+        SystemUiControll.instence.register(this@App)
     }
 }
